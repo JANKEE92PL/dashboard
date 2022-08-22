@@ -1,5 +1,11 @@
 <script>
   import { aufgaben } from "../storage/stores";
+  import ListeAPI from "../storage/ListeAPI";
+  import { onMount } from "svelte";
+
+  onMount(async () => {
+    $aufgaben = await ListeAPI.laden();
+  });
 </script>
 
 <div class="container">
@@ -19,6 +25,8 @@
           </div>
         </div>
       </div>
+    {:else}
+      <h1 class="title is-4 mt-4">Keine Aufgaben vorhanden</h1>
     {/each}
   </div>
 </div>
