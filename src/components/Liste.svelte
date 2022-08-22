@@ -29,8 +29,8 @@
       <div class="column is-one-third">
         <div
           class="card"
-          in:fly={{ y: -150, duration: 1000 }}
-          out:fly={{ y: 500, duration: 500 , easing: expoOut}}
+          in:fly={{ y: -150, duration: 1000, delay: 500 }}
+          out:fly={{ y: 500, duration: 500, easing: expoOut }}
         >
           <header class="card-header">
             <button

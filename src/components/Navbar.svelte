@@ -1,6 +1,6 @@
 <script>
   import Formular from "./Formular.svelte";
-
+  import Router from "svelte-spa-router";
   let form;
 </script>
 
@@ -17,7 +17,15 @@
 
 <div class="box">
   <div class="container">
-    <button on:click={() => form.formularAnzeigen()} class="button">Neu</button>
+    <div class="field is-grouped">
+      <button on:click={() => form.formularAnzeigen()} class="button">Neu</button>
+      <div class="tabs">
+        <ul>
+          <li><a href="/#/">Karten</a></li>
+          <li><a href="/#/tabelle">Tabelle</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
