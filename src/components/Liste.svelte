@@ -2,6 +2,8 @@
   import { aufgaben } from "../storage/stores";
   import ListeAPI from "../storage/ListeAPI";
   import { onMount } from "svelte";
+  import { blur, slide, fly, scale } from "svelte/transition";
+  import { expoOut } from "svelte/easing";
 
   onMount(async () => {
     $aufgaben = await ListeAPI.laden();
@@ -25,7 +27,11 @@
   <div class="columns is-multiline">
     {#each $aufgaben as aufgabe (aufgabe)}
       <div class="column is-one-third">
-        <div class="card">
+        <div
+          class="card"
+          in:fly={{ y: -150, duration: 1000 }}
+          out:fly={{ y: 500, duration: 500 , easing: expoOut}}
+        >
           <header class="card-header">
             <button
               class="delete is-small"
