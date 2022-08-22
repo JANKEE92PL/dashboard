@@ -1,3 +1,7 @@
+<script>
+  import Formular from "./Formular.svelte";
+</script>
+
 <section class="hero is-primary welcome is-small">
   <div class="hero-body">
     <div class="container">
@@ -8,3 +12,5 @@
     </div>
   </div>
 </section>
+
+<Formular />
