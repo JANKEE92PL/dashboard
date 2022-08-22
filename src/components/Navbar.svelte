@@ -1,5 +1,7 @@
 <script>
   import Formular from "./Formular.svelte";
+
+  let form;
 </script>
 
 <section class="hero is-primary welcome is-small">
@@ -13,4 +15,10 @@
   </div>
 </section>
 
-<Formular />
+<div class="box">
+  <div class="container">
+    <button on:click={() => form.formularAnzeigen()} class="button">Neu</button>
+  </div>
+</div>
+
+<Formular bind:this={form} />
