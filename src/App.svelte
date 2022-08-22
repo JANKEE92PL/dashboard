@@ -8,8 +8,8 @@
   $: aufgabenAnzahlErledigt = $aufgaben.filter(aufgabe => aufgabe.erledigt).length;
 </script>
 
-<svelte:head><title>Dashboard: {aufgabenAnzahlErledigt - 1}/{aufgabenAnzahl}</title></svelte:head>
-<Navbar>To-do-Liste: {aufgabenAnzahlErledigt - 1}/{aufgabenAnzahl}</Navbar>
+<svelte:head><title>Dashboard: {aufgabenAnzahlErledigt}/{aufgabenAnzahl}</title></svelte:head>
+<Navbar>To-do-Liste: {aufgabenAnzahlErledigt}/{aufgabenAnzahl}</Navbar>
 
 
 
