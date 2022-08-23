@@ -55,7 +55,7 @@
                 </div>
             </div>
         {:else}
-            <h1 class="title is-4 mt-4">Keine Aufgaben vorhanden</h1>
+            <h1 in:blur="{{amount: 50, delay: 400}}" class="title is-4 mt-4">Keine Aufgaben vorhanden, Lege deine erste Aufgabe an.</h1>
         {/each}
     </div>
 </div>
