@@ -4,7 +4,13 @@
   import Liste from "./components/Liste.svelte";
   import { aufgaben } from "./storage/stores";
   import Router from "svelte-spa-router";
-    import Tabelle from "./components/Tabelle.svelte";
+  import Tabelle from "./components/Tabelle.svelte";
+  import ListeAPI from "./storage/ListeAPI";
+  import { onMount } from "svelte";
+
+  onMount(async () => {
+      $aufgaben = await ListeAPI.laden();
+  });
 
   $: aufgabenAnzahl = $aufgaben.length;
   $: aufgabenAnzahlErledigt = $aufgaben.filter(

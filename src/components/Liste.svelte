@@ -1,13 +1,9 @@
 <script>
   import { aufgaben } from "../storage/stores";
   import ListeAPI from "../storage/ListeAPI";
-  import { onMount } from "svelte";
   import { blur, slide, fly, scale } from "svelte/transition";
   import { expoOut } from "svelte/easing";
 
-  onMount(async () => {
-    $aufgaben = await ListeAPI.laden();
-  });
 
   const bearbeiten = (id) => {
     ListeAPI.speichern($aufgaben);
@@ -52,8 +48,7 @@
                 class="textarea"
                 rows="3"
                 on:blur={() => bearbeiten(aufgabe.id)}
-                bind:value={aufgabe.inhalt}
-              />
+                bind:value={aufgabe.inhalt}></textarea>
             </div>
           </div>
         </div>
