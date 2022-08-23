@@ -1,8 +1,18 @@
 <script>
-    import {blur} from "svelte/transition";
+    import {blur, slide} from "svelte/transition";
     import Aufgabe from "./Aufgabe.svelte";
     import {aufgaben} from "../storage/stores.js";
     import ListeAPI from "../storage/ListeAPI.js";
+
+
+    let unerledigt = $aufgaben.filter(aufgabe => aufgabe.erledigt === false).length;
+
+    let aufgabenSortiert = [];
+
+    $:{
+        aufgabenSortiert = [...$aufgaben];
+        aufgabenSortiert.sort((a, b) => (a.erledigt && b.erledigt) ? 0 : ((a.erledigt) ? 1 : -1));
+    }
 
     function update(e) {
         // console.log(e.detail)
@@ -13,9 +23,10 @@
 </script>
 
 <div class="container" in:blur={{ amount: 5, delay: 400 }}>
+    <input type="range" bind:value={unerledigt} max={$aufgaben.length}>
     <div class="box">
-        {#each $aufgaben as aufgabe}
-            <div class="tabelle">
+        {#each aufgabenSortiert.slice(0,unerledigt) as aufgabe}
+            <div transition:slide class="tabelle">
                 <Aufgabe {...aufgabe} on:update={update}/>
             </div>
         {:else }
