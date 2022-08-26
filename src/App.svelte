@@ -7,6 +7,7 @@
   import Tabelle from "./components/Tabelle.svelte";
   import ListeAPI from "./storage/ListeAPI";
   import { onMount } from "svelte";
+  import Kachel from "./components/Kachel.svelte";
 
   onMount(async () => {
       $aufgaben = await ListeAPI.laden();
@@ -28,6 +29,7 @@
   routes={{
     "/": Liste,
     "/tabelle": Tabelle,
+    "/kachel": Kachel,
   }}
 />
 

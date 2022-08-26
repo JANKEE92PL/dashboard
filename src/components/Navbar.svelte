@@ -28,6 +28,7 @@
                 <ul>
                     <li><a href="/#/" class:has-background-grey-lighter="{$location === '/'}">Karten</a></li>
                     <li><a href="/#/tabelle" class:has-background-grey-lighter="{$location === '/tabelle'}">Tabelle</a>
+                    <li><a href="/#/kachel" class:has-background-grey-lighter="{$location === '/kachel'}">Kachel</a>
                     </li>
                 </ul>
             </div>
